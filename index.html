@@ -47,6 +47,40 @@
             line-height: 1.7;
             white-space: pre-line;
         }
+        #helpTab {
+    background: #0891b2;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#helpTab:hover {
+    background: #0e7490;
+}
+
+#helpPanel {
+    border: 2px solid #0891b2;
+    color: white;
+}
+
+#helpPanel h2 {
+    color: #22d3ee;
+    text-align: center;
+}
+
+#helpPanel h3 {
+    color: #67e8f9;
+    border-bottom: 1px solid #475569;
+    padding-bottom: 5px;
+}
+
+#helpPanel li {
+    margin: 6px 0;
+}
     </style>
 </head>
 
@@ -58,6 +92,7 @@
 
     <button id="listen">🎤 Start Talking</button>
     <button id="stop">⏹ Stop</button>
+    <button id="clearChat">🧹 Clear Conversation</button>
 <button id="helpTab">📖 How to Use</button>
 
 <div id="helpPanel" style="
@@ -105,14 +140,26 @@
         <li>Say: "Make me laugh"</li>
         <li>Say: "Good morning"</li>
     </ul>
-
+<h3>🌎 General Knowledge</h3>
+<ul>
+    <li>Ask: "What is a black hole?"</li>
+    <li>Ask: "What is the sun?"</li>
+    <li>Ask: "What is an atom?"</li>
+    <li>Ask: "What is gravity?"</li>
+</ul>
     <h3>🔧 Controls</h3>
     <ul>
         <li>Start Talking — activates the microphone</li>
         <li>Stop — ends the conversation</li>
         <li>Choose my voice — changes the assistant's voice</li>
     </ul>
-
+<h3>🎤 Voice Tips</h3>
+<ul>
+    <li>Speak clearly and at a normal pace.</li>
+    <li>Wait until My Voice Helper finishes speaking before asking another question.</li>
+    <li>If the microphone doesn't work, check your browser's microphone permission.</li>
+    <li>Click Stop when you're finished.</li>
+</ul>
 </div>
     <br><br>
 
@@ -779,7 +826,13 @@ async function getWeather() {
         }
     );
 }
+document.getElementById("clearChat").onclick = function() {
+    const output = document.getElementById("output");
 
+    if (output) {
+        output.innerHTML = "";
+    }
+};
     </script>
 
 </body>
