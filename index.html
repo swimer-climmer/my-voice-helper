@@ -84,11 +84,13 @@
         let userAnimal = "";
         let secretNumber = 0;
         let gameActive = false;
+        
 
         // LISTENING SETTINGS
 
         let listening = false;
         let speaking = false;
+        let copycatMode = false;
 
         // VOICES
 
@@ -165,6 +167,22 @@
         function getAnswer(words) {
 
             const message = words.toLowerCase().trim();
+            
+    // COPYCAT MODE
+    if (message.includes("start copycat mode")) {
+        copycatMode = true;
+        return "Copycat mode activated! I'll repeat everything you say. Say stop copycat mode to quit.";
+    }
+
+    if (message.includes("stop copycat mode")) {
+        copycatMode = false;
+        return "Copycat mode deactivated!";
+    }
+
+    if (copycatMode) {
+        return words;
+    }
+
 
             // REMEMBER NAME
 
