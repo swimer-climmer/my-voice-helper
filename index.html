@@ -58,7 +58,62 @@
 
     <button id="listen">🎤 Start Talking</button>
     <button id="stop">⏹ Stop</button>
+<button id="helpTab">📖 How to Use</button>
 
+<div id="helpPanel" style="
+    display: none;
+    background: #1e293b;
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 15px;
+    max-width: 650px;
+    text-align: left;
+    line-height: 1.8;
+">
+
+    <h2>📖 How to Use My Voice Helper</h2>
+
+    <h3>🧠 Remember Things</h3>
+    <ul>
+        <li>Say: "My name is Alex"</li>
+        <li>Say: "What is my name?"</li>
+        <li>Say: "My favorite color is blue"</li>
+        <li>Say: "My birthday is June 5"</li>
+        <li>Say: "My favorite animal is a dog"</li>
+    </ul>
+
+    <h3>🧮 Math and Numbers</h3>
+    <ul>
+        <li>Say: "What is 25 plus 10?"</li>
+        <li>Say: "Count to 20"</li>
+        <li>Say: "What time is it?"</li>
+        <li>Say: "What is today's date?"</li>
+    </ul>
+
+    <h3>🎮 Games</h3>
+    <ul>
+        <li>Say: "Play a guessing game"</li>
+        <li>Say: "Play rock-paper-scissors"</li>
+        <li>Then say: "Rock", "Paper", or "Scissors"</li>
+        <li>Say: "Flip a coin"</li>
+        <li>Say: "Roll the dice"</li>
+    </ul>
+
+    <h3>😂 Fun</h3>
+    <ul>
+        <li>Say: "Tell me a joke"</li>
+        <li>Say: "Make me laugh"</li>
+        <li>Say: "Good morning"</li>
+    </ul>
+
+    <h3>🔧 Controls</h3>
+    <ul>
+        <li>Start Talking — activates the microphone</li>
+        <li>Stop — ends the conversation</li>
+        <li>Choose my voice — changes the assistant's voice</li>
+    </ul>
+
+</div>
     <br><br>
 
     <label for="voiceSelect">Choose my voice:</label>
@@ -610,7 +665,22 @@ speak(answer);
 
         }
 
+// HOW TO USE TAB
 
+const helpTab = document.getElementById("helpTab");
+const helpPanel = document.getElementById("helpPanel");
+
+helpTab.onclick = function() {
+
+    if (helpPanel.style.display === "none") {
+        helpPanel.style.display = "block";
+        helpTab.textContent = "❌ Close Instructions";
+    } else {
+        helpPanel.style.display = "none";
+        helpTab.textContent = "📖 How to Use";
+    }
+
+};
 async function getWeather() {
     output.textContent = "Getting your location...";
 
